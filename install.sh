@@ -1,3 +1,11 @@
+#!/bin/bash
+
+wait-to-continue(){
+    echo
+    echo 'Press Enter to continue or Ctrl-C to exit'
+    read
+}
+
 install-mysql(){
     echo 'Lets install and configure MySQL, a RDBMS'
 
@@ -21,3 +29,5 @@ DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%';
 FLUSH PRIVILEGES;
 EOF
 }
+
+which mysql >/dev/null || install-mysql
